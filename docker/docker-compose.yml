@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+
+  db:
+    image: postgres:15-alpine
+    container_name: nn_fund_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: odoo
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - odoo_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  odoo:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: nn_fund_odoo
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8069:8069"
+      - "8072:8072"
+    environment:
+      HOST: db
+      PORT: 5432
+      USER: odoo
+      PASSWORD: odoo
+    volumes:
+      - odoo_data:/var/lib/odoo
+      - ../nn_fund_management:/mnt/extra-addons/nn_fund_management:ro
+      - ./odoo.conf:/etc/odoo/odoo.conf:ro
+    networks:
+      - odoo_net
+
+volumes:
+  db_data:
+  odoo_data:
+
+networks:
+  odoo_net:
+    driver: bridge
