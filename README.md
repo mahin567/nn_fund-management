@@ -73,7 +73,7 @@ Option 2 — Manual (existing Odoo instance)
 Clone this repository into your Odoo addons directory:
 
 
-bashgit clone https://github.com/your-username/nn_fund_management.git /path/to/odoo/addons/nn_fund_management
+bashgit clone https://github.com/mahin567/nn_fund_management.git /path/to/odoo/addons/nn_fund_management
 
 
 Restart the Odoo service:
@@ -106,7 +106,7 @@ nn_fund_management/
 
 Step 1 — Clone the repository
 
-bashgit clone https://github.com/your-username/nn_fund_management.git
+bashgit clone https://github.com/mahin567/nn_fund_management.git
 cd nn_fund_management
 
 Step 2 — Start the containers
