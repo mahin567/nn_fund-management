@@ -1,0 +1,171 @@
+/* Fund Management Dashboard */
+
+.o_fund_dashboard {
+    padding: 24px;
+    background: var(--o-view-background-color, #f8f9fa);
+    min-height: 100%;
+}
+
+.o_fund_dashboard_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.o_fund_dashboard_title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0;
+}
+
+.o_fund_dashboard_loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+    color: #9ca3af;
+}
+
+/* KPI Cards */
+.o_fund_kpi_row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.o_fund_kpi_card {
+    flex: 1 1 160px;
+    border-radius: 10px;
+    padding: 18px 20px;
+    color: #fff;
+    min-width: 150px;
+}
+
+.o_kpi_blue    { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.o_kpi_green   { background: linear-gradient(135deg, #22c55e, #15803d); }
+.o_kpi_yellow  { background: linear-gradient(135deg, #f59e0b, #b45309); }
+.o_kpi_purple  { background: linear-gradient(135deg, #8b5cf6, #6d28d9); }
+.o_kpi_red     { background: linear-gradient(135deg, #ef4444, #b91c1c); }
+
+.o_kpi_label {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0.85;
+    margin-bottom: 6px;
+}
+
+.o_kpi_value {
+    font-size: 1.55rem;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Pending Approvals */
+.o_fund_section_title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #6b7280;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.o_fund_pending_row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.o_fund_pending_card {
+    flex: 1 1 140px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    cursor: pointer;
+    position: relative;
+    transition: box-shadow 0.15s;
+}
+
+.o_fund_pending_card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-color: #6366f1;
+}
+
+.o_pending_count {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #4f46e5;
+    line-height: 1;
+}
+
+.o_pending_verify .o_pending_count {
+    color: #d97706;
+}
+
+.o_pending_label {
+    font-size: 0.82rem;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+.o_pending_icon {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    color: #d1d5db;
+    font-size: 1rem;
+}
+
+.o_fund_pending_card:hover .o_pending_icon {
+    color: #6366f1;
+}
+
+/* Charts */
+.o_fund_charts_row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.o_fund_chart_card {
+    flex: 1 1 300px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+/* Tables */
+.o_fund_table {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+}
+
+.o_fund_table thead th {
+    background: #f3f4f6;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: #6b7280;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 12px;
+}
+
+.o_fund_table tbody td {
+    padding: 9px 12px;
+    vertical-align: middle;
+    border-bottom: 1px solid #f3f4f6;
+    font-size: 0.88rem;
+}

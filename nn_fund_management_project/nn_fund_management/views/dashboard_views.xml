@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--
+            The dashboard uses an ir.actions.client action that loads a
+            lightweight OWL component (fund_dashboard.js).  The component
+            calls the fund.dashboard.get_dashboard_data() RPC and renders
+            the KPI cards + charts using Chart.js (bundled with Odoo 17).
+        -->
+
+        <record id="action_fund_dashboard" model="ir.actions.client">
+            <field name="name">Fund Management Dashboard</field>
+            <field name="tag">fund_management.Dashboard</field>
+        </record>
+    </data>
+
+</odoo>

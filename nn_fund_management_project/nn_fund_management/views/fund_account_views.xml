@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_fund_account_tree" model="ir.ui.view">
+            <field name="name">fund.account.tree</field>
+            <field name="model">fund.account</field>
+            <field name="arch" type="xml">
+                <tree string="Fund Accounts">
+                    <field name="name"/>
+                    <field name="account_type"/>
+                    <field name="total_received"/>
+                    <field name="unassigned_balance"/>
+                    <field name="held_amount"/>
+                    <field name="assigned_amount"/>
+                    <field name="currency_id" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_fund_account_form" model="ir.ui.view">
+            <field name="name">fund.account.form</field>
+            <field name="model">fund.account</field>
+            <field name="arch" type="xml">
+                <form string="Fund Account">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name" placeholder="e.g. BRAC Bank - Main Account"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="account_type"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="total_received"/>
+                                <field name="unassigned_balance"/>
+                                <field name="held_amount"/>
+                                <field name="assigned_amount"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Incoming Funds">
+                                <field name="incoming_fund_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="date"/>
+                                        <field name="amount"/>
+                                        <field name="transaction_reference"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Allocations">
+                                <field name="allocation_ids">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="amount"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_fund_account" model="ir.actions.act_window">
+            <field name="name">Fund Accounts</field>
+            <field name="res_model">fund.account</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first fund account
+                </p>
+            </field>
+        </record>
+    </data>
+
+</odoo>

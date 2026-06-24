@@ -1,0 +1,25 @@
+# Version control
+.git
+.gitignore
+
+# Python cache
+**/__pycache__
+**/*.pyc
+**/*.pyo
+
+# Editor / OS artefacts
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Test output
+.coverage
+htmlcov/
+
+# Documentation build artefacts
+docs/_build/

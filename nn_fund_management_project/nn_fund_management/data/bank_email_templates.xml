@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="bank_email_template_brac" model="fund.bank.email.template">
+            <field name="name">BRAC Bank / bKash</field>
+            <field name="sequence">10</field>
+            <field name="subject_keywords">brac,bkash,credit alert</field>
+            <field name="amount_regex">(?:BDT|Tk\.?|TK)\s*([0-9,]+(?:\.[0-9]{1,2})?)</field>
+            <field name="ref_regex">(?:Ref(?:erence)?[:\s#]+)([A-Z0-9\-]{6,30})</field>
+            <field name="sender_regex">(?:Sender|From|Name)[:\s]+([^\n\r,]+)</field>
+            <field name="description">Handles BRAC Bank and bKash credit notification emails.</field>
+        </record>
+
+        <record id="bank_email_template_dbbl" model="fund.bank.email.template">
+            <field name="name">Dutch-Bangla Bank / Nexus Pay</field>
+            <field name="sequence">20</field>
+            <field name="subject_keywords">dbbl,dutch-bangla,dutch bangla,nexus pay</field>
+            <field name="amount_regex">(?:BDT|Tk\.?|TK)\s*([0-9,]+(?:\.[0-9]{1,2})?)</field>
+            <field name="ref_regex">(?:Transaction\s*ID|TxnID|Ref)[:\s]+([A-Z0-9]{6,30})</field>
+            <field name="sender_regex">(?:Sender|Payer|From)[:\s]+([^\n\r,]+)</field>
+            <field name="description">Handles Dutch-Bangla Bank and Nexus Pay notification emails.</field>
+        </record>
+
+        <record id="bank_email_template_ibbl" model="fund.bank.email.template">
+            <field name="name">Islami Bank / CellFin</field>
+            <field name="sequence">30</field>
+            <field name="subject_keywords">islami bank,ibbl,cellfin</field>
+            <field name="amount_regex">(?:BDT|Tk\.?|TK)\s*([0-9,]+(?:\.[0-9]{1,2})?)</field>
+            <field name="ref_regex">(?:Ref(?:erence)?[:\s]+)([A-Z0-9\-]{6,30})</field>
+            <field name="sender_regex">(?:Sender|Remitter)[:\s]+([^\n\r,]+)</field>
+            <field name="description">Handles Islami Bank and CellFin notification emails.</field>
+        </record>
+
+        <record id="bank_email_template_generic" model="fund.bank.email.template">
+            <field name="name">Generic Fallback</field>
+            <field name="sequence">99</field>
+            <field name="subject_keywords"></field>
+            <field name="amount_regex">(?:BDT|Tk\.?|TK|Amount)[:\s]*([0-9,]+(?:\.[0-9]{1,2})?)</field>
+            <field name="ref_regex">(?:Ref(?:erence)?|TxID|TransactionID)[:\s#]+([A-Z0-9\-]{6,30})</field>
+            <field name="sender_regex">(?:Sender|From|Name|Payer)[:\s]+([^\n\r,]+)</field>
+            <field name="description">Fallback template for banks not otherwise configured. No subject keyword filter — matches any email not caught by earlier templates.</field>
+        </record>
+
+    </data>
+</odoo>

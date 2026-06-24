@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="NN Fund Management backend assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/nn_fund_management/static/src/css/fund_dashboard.css"/>
+            <!-- Chart.js must be a plain (non-module) script so the Chart global
+                 is available before fund_dashboard.js runs. Place it BEFORE the
+                 module script. -->
+            <script src="/nn_fund_management/static/lib/chartjs/chart.umd.min.js"/>
+            <script type="module" src="/nn_fund_management/static/src/js/fund_dashboard.js"/>
+        </xpath>
+    </template>
+
+    <template id="assets_qweb" name="NN Fund Management QWeb assets" inherit_id="web.assets_qweb">
+        <xpath expr="." position="inside">
+            <t t-call="/nn_fund_management/static/src/xml/fund_dashboard.xml"/>
+        </xpath>
+    </template>
+</odoo>

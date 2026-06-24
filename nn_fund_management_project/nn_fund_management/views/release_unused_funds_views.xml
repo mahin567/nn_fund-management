@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_release_unused_wizard_form" model="ir.ui.view">
+            <field name="name">fund.release.unused.wizard.form</field>
+            <field name="model">fund.release.unused.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Release Unused Funds">
+                    <group>
+                        <field name="requisition_id" readonly="1"/>
+                        <field name="currency_id" invisible="1"/>
+                        <field name="approved_amount"/>
+                        <field name="billed_amount"/>
+                        <field name="unused_amount"/>
+                    </group>
+                    <group>
+                        <field name="close_after_release"/>
+                        <field name="comment" placeholder="Optional note explaining the release..."/>
+                    </group>
+                    <footer>
+                        <button name="action_release" type="object" string="Release Funds"
+                                class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_release_unused_wizard" model="ir.actions.act_window">
+            <field name="name">Release Unused Funds</field>
+            <field name="res_model">fund.release.unused.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+
+</odoo>

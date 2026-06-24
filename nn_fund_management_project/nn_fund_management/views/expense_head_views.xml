@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_fund_expense_head_tree" model="ir.ui.view">
+            <field name="name">fund.expense.head.tree</field>
+            <field name="model">fund.expense.head</field>
+            <field name="arch" type="xml">
+                <tree string="Expense Heads">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="total_allocated"/>
+                    <field name="available_fund"/>
+                    <field name="requisition_hold"/>
+                    <field name="total_spent"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_fund_expense_head_form" model="ir.ui.view">
+            <field name="name">fund.expense.head.form</field>
+            <field name="model">fund.expense.head</field>
+            <field name="arch" type="xml">
+                <form string="Expense Head">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="name"/></h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="code"/>
+                                <field name="company_id" groups="base.group_multi_company"/>
+                                <field name="currency_id" invisible="1"/>
+                            </group>
+                            <group>
+                                <field name="total_allocated"/>
+                                <field name="available_fund"/>
+                                <field name="requisition_hold"/>
+                                <field name="transfer_hold"/>
+                                <field name="approved_unspent"/>
+                                <field name="total_spent"/>
+                                <field name="incoming_transfers"/>
+                                <field name="outgoing_transfers"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_fund_expense_head" model="ir.actions.act_window">
+            <field name="name">Expense Heads</field>
+            <field name="res_model">fund.expense.head</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first expense head
+                </p>
+            </field>
+        </record>
+    </data>
+
+</odoo>
